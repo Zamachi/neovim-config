@@ -1,0 +1,6 @@
+require('general')
+require('general_keymappings')
+require('plugins')
+require("plugins_keymappings")
+require('plugin_setups')
+require("lsp_configurations")
