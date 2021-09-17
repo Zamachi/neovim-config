@@ -50,7 +50,7 @@ return require('packer').startup(function()
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
-			'nvim-lua/plenary.nvim'
+			'nvim-lua/plenary.nvimc'
 		}
 	}
 
@@ -60,5 +60,7 @@ return require('packer').startup(function()
 	use { 'ms-jpq/coq.artifacts', branch="artifacts" } -- snippets
 	use { 'ms-jpq/coq.thirdparty', branch="3p" } -- third party features & integration
 
-
+	use { 'p00f/nvim-ts-rainbow' }
+	use { 'yamatsum/nvim-cursorline' }
+	use { 'SmiteshP/nvim-gps' }
 end)

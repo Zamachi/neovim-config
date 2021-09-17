@@ -1,5 +1,9 @@
 local which_key = require("which-key")
 
+-- U CommitMessage (kada se u Neogit statusu pretisne c pa opet c za Commit) omogucava da se komituje sa C-c C-c, umesto :wq
+vim.cmd("autocmd FileType NeogitCommitMessage nnoremap <buffer> <C-c><C-c> :wq<CR>")
+
+
 which_key.register({
 	f = {
 		name = "file", -- optional group name

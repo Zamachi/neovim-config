@@ -7,6 +7,7 @@ local gitsigns = require("gitsigns")
 local neogit = require("neogit")
 local diffview = require("diffview")
 local diffview_cb = require("diffview.config").diffview_callback
+local nvim_gps = require("nvim-gps")
 
 catppuccino.setup({
     colorscheme = "neon_latte",
@@ -58,9 +59,32 @@ catppuccino.setup({
 })
 
 vim.cmd[[colorscheme catppuccino]]
+
+nvim_gps.setup({
+		icons = {
+			["class-name"] = ' ',      -- Classes and class-like objects
+			["function-name"] = ' ',   -- Functions
+			["method-name"] = ' '      -- Methods (functions inside class-like objects)
+		},
+		-- Disable any languages individually over here
+		-- Any language not disabled here is enabled by default
+		languages = {
+			-- ["bash"] = false,
+			-- ["go"] = false,
+		},
+		separator = ' > ',
+})
+
+
 lualine.setup({
 	options = { theme = "catppuccino" },
-	extensions = { "nvim-tree"}
+	extensions = { "nvim-tree"},
+	sections = {
+		lualine_c = {
+			-- gps je za breadcrumbs na statusline-u
+			{ nvim_gps.get_location, condition = nvim_gps.is_available }, 	
+		}
+	}
 })
 
 colorizer.setup({

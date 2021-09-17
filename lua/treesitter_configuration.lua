@@ -20,7 +20,13 @@ require("nvim-treesitter.configs").setup{
 	--indent = {
 	--	enable = true
 	--}
-
+	rainbow = {
+		enable = true,
+		extended_mode = true, -- Hajlajtuje i delimitere kao html tagove, boolean, tabele itd.
+		max_file_lines = nil,
+		-- colors = {}, -- Lua tabela sa hexadec stringovima za boje koje se koriste
+		-- termcolors = {} -- Isto kao i iznad, samo za Terminal Neovim
+	}
 }
 -- za code folding (kada kod ima nesto ugnjezdeno/viselinijski komentar pa se "collapsuje")
 vim.api.nvim_exec([[
