@@ -22,7 +22,6 @@ return require('packer').startup(function()
 		run = ':TSUpdate'
 	}
 
-
 	use "Pocco81/Catppuccino.nvim"
 
 	use {
@@ -57,5 +56,9 @@ return require('packer').startup(function()
 
 	use 'sindrets/diffview.nvim'
 	
+	use { 'ms-jpq/coq_nvim', branch="coq" } -- Coq completion
+	use { 'ms-jpq/coq.artifacts', branch="artifacts" } -- snippets
+	use { 'ms-jpq/coq.thirdparty', branch="3p" } -- third party features & integration
+
 
 end)

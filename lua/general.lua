@@ -8,4 +8,8 @@ vim.cmd('set nowritebackup')
 vim.cmd('set cmdheight=2')
 vim.cmd('set updatetime=300')
 vim.cmd('set signcolumn=number')
+--Special thanks to Github user Awpteamoose who provided us with the option below, it disables default Nvim-qt GUI look for popup menus, this allows it to fit a specific theme
+vim.cmd('call rpcnotify(0, "Gui", "Option", "Popupmenu", 0)')
+-- Thanks to BoltsJ for providing the following solution for disabling ugly tabs in Nvim-Qt, the following uses Terminal User Interface tablines 
+vim.cmd('call rpcnotify(0, "Gui", "Option", "Tabline", 0)')
 vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o')

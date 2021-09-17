@@ -45,7 +45,7 @@ catppuccino.setup({
         which_key = true,
         indent_blankline = {enabled = false, colored_indent_levels = false},
         dashboard = false,
-        neogit = false,
+        neogit = true,
         vim_sneak = false,
         fern = false,
         barbar = false,
@@ -59,7 +59,8 @@ catppuccino.setup({
 
 vim.cmd[[colorscheme catppuccino]]
 lualine.setup({
-	options = { theme = "catppuccino" }
+	options = { theme = "catppuccino" },
+	extensions = { "nvim-tree"}
 })
 
 colorizer.setup({

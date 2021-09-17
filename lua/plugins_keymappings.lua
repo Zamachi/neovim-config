@@ -20,5 +20,19 @@ which_key.register({
 		name = "Buffer Management",
 		b = { "<cmd>Telescope buffers<cr>", "Switch to a buffer" },
 		K = {"<cmd>bd<cr>", "Kill a current buffer"}
+	},
+	t = {
+		name = "Toggles",
+		T = { "<cmd>Twilight<cr>", "Toggle Twilight" },
+		N = { "<cmd>NvimTreeToggle<cr>", "Toggle Neovim project tree" }
+	},
+	s = {
+		name = "Search...",
+		b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer"}
+	},
+	g = {
+		name = "Git version control",
+		s = {"<cmd>Neogit<cr>", "(Neo)git status"}
 	}
+
 }, { prefix = "<Leader>" })
