@@ -1,3 +1,7 @@
+vim.g.coq_settings={
+	auto_start = true
+}
+
 local catppuccino = require("catppuccino")
 local lualine = require('lualine')
 local colorizer = require("colorizer")
@@ -8,6 +12,9 @@ local neogit = require("neogit")
 local diffview = require("diffview")
 local diffview_cb = require("diffview.config").diffview_callback
 local nvim_gps = require("nvim-gps")
+local lsp_status = require("lsp-status")
+local le_coq = require("coq")
+local indent_line = require("indent_blankline")
 
 catppuccino.setup({
     colorscheme = "neon_latte",
@@ -37,7 +44,7 @@ catppuccino.setup({
                 information = "underline"
             }
         },
-        lsp_trouble = false,
+        lsp_trouble = true,
         lsp_saga = false,
         gitgutter = false,
         gitsigns = true,
@@ -53,7 +60,7 @@ catppuccino.setup({
         bufferline = false,
         markdown = false,
         lightspeed = false,
-        ts_rainbow = false,
+        ts_rainbow = true,
         hop = false
     }
 })
@@ -81,9 +88,13 @@ lualine.setup({
 	extensions = { "nvim-tree"},
 	sections = {
 		lualine_c = {
+			'filename',
 			-- gps je za breadcrumbs na statusline-u
 			{ nvim_gps.get_location, condition = nvim_gps.is_available }, 	
-		}
+		},
+		lualine_x = {
+			{ lsp_status.status  } ,
+			'encoding', 'fileformat', 'filetype'},
 	}
 })
 
@@ -165,3 +176,7 @@ diffview.setup({
 
 })
 
+indent_line.setup({
+	char = "|",
+	buftype_exclude = {"terminal"}
+})

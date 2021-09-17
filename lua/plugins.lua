@@ -50,7 +50,7 @@ return require('packer').startup(function()
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
-			'nvim-lua/plenary.nvimc'
+			'nvim-lua/plenary.nvim'
 		}
 	}
 
@@ -63,4 +63,36 @@ return require('packer').startup(function()
 	use { 'p00f/nvim-ts-rainbow' }
 	use { 'yamatsum/nvim-cursorline' }
 	use { 'SmiteshP/nvim-gps' }
+	use { 'nvim-lua/lsp-status.nvim' }
+	use {
+		'williamboman/nvim-lsp-installer',
+	}
+
+	use 'folke/lsp-colors.nvim'
+
+	use {
+		"ray-x/lsp_signature.nvim",
+	}
+	use {
+		  "folke/trouble.nvim",
+		    requires = "kyazdani42/nvim-web-devicons",
+	}
+	
+	use { -- possibly unnecessary
+		'onsails/vimway-lsp-diag.nvim'
+	}
+	
+	-- slicno kao Treemacs UI symbol viewer
+	use 'simrat39/symbols-outline.nvim'
+
+	--omogucava da konfigurisem LSP sa JSON fajlovima kao Coc-Settings
+	use 'tamago324/nlsp-settings.nvim'
+
+	-- lightbulb na liniji koda gde postoji code action
+	use 'kosayoda/nvim-lightbulb'
+	
+	-- linije za indentaciju (visual aid)
+	use 'lukas-reineke/indent-blankline.nvim'
+	
+
 end)
