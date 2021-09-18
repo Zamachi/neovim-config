@@ -10,3 +10,4 @@ function M.create_augroup(autocmds, name)
 	cmd('augroup END')
 end
 return M
+

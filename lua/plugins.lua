@@ -94,5 +94,8 @@ return require('packer').startup(function()
 	-- linije za indentaciju (visual aid)
 	use 'lukas-reineke/indent-blankline.nvim'
 	
+	use 'ahmedkhalf/project.nvim'
+
+
 
 end)

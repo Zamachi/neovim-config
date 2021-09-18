@@ -28,7 +28,8 @@ which_key.register({
 	t = {
 		name = "Toggles",
 		T = { "<cmd>Twilight<cr>", "Toggle Twilight" },
-		N = { "<cmd>NvimTreeToggle<cr>", "Toggle Neovim project tree" }
+		N = { "<cmd>NvimTreeToggle<cr>", "Toggle Neovim project tree" },
+		s = {"<cmd>SymbolsOutline<cr>", "Toggle symbol hierarchy" }
 	},
 	s = {
 		name = "Search...",
@@ -37,6 +38,10 @@ which_key.register({
 	g = {
 		name = "Git version control",
 		s = {"<cmd>Neogit<cr>", "(Neo)git status"}
+	},
+	p = {
+		name = "Project management",
+		p = {"<cmd>Telescope projects<cr>", "Open recent projects..."}
 	}
 
 }, { prefix = "<Leader>" })

@@ -5,6 +5,8 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_li
 local lsp_config = require("lspconfig")
 local lsp_installer = require("nvim-lsp-installer")
 local trouble_lsp = require("trouble")
+local lsp_signature = require("lsp_signature")
+local lsp_status = require("lsp-status")
 
 --lsp_installer.on_server_ready(function(server)
 --	    local opts = {}
@@ -20,8 +22,67 @@ local trouble_lsp = require("trouble")
 --end)
 
 lsp_config.pyright.setup{
-	
 }
+
+local system_name
+    
+if vim.fn.has('mac') == 1 then
+    system_name = "macOS"
+elseif vim.fn.has("unix") == 1 then
+    system_name = "Linux"
+elseif vim.fn.has('win32') == 1 then
+    system_name = "Windows"
+else 
+    system_name = "Unsupported"
+end
+
+--sumneko zahteva posebnu konfiguraciju na Windowsu(apparently)
+--ovaj root path je mozda drugaciji na drugim platformama(Linux/Mac), proveriti?
+local sumneko_root_path = vim.fn.stdpath('data')..'/lsp_servers/sumneko_lua/extension/server'
+local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server" 
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+lsp_config.sumneko_lua.setup{
+    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
+    settings = {
+	Lua = {
+	    runtime = {
+		version="LuaJIT",
+		path = runtime_path,
+		},
+	    diagnostics = {
+		globals = {'vim'},
+	    },
+	    workspace = {
+		library = vim.api.nvim_get_runtime_file("", true),
+	    },
+	    telemetry = { enable = false }
+	}
+    }
+}
+
+lsp_signature.setup({
+    bind = true,
+    floating_window = true,
+    hint_enable = true,
+    hint_prefix = "🐼 ",
+    hint_scheme = "String",
+    handler_opts = { border = "shadow" },
+    zindex = 200,
+    padding = ' ',
+    shadow_blend = 36,
+    shadow_guibg = "#999999",
+    --fix_pos=false,
+    --hi_parameter = "Search",
+    --max_height = 12,
+    --max_width=120,
+    --trigger_on_newline=false,
+    --log_path="path",
+    --debug=false
+})
 
 trouble_lsp.setup({ -- trouble can also integrate with Telescope(put in plugin_setups)
 	position = "bottom"

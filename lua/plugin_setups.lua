@@ -1,6 +1,9 @@
 vim.g.coq_settings={
 	auto_start = true
 }
+-- nvimtree integration for project.nvim
+vim.g.nvim_tree_update_cwd = 1
+vim.g.nvim_tree_respect_buf_cwd = 1
 
 local catppuccino = require("catppuccino")
 local lualine = require('lualine')
@@ -13,8 +16,11 @@ local diffview = require("diffview")
 local diffview_cb = require("diffview.config").diffview_callback
 local nvim_gps = require("nvim-gps")
 local lsp_status = require("lsp-status")
+local lsp_colors = require("lsp-colors")
 local le_coq = require("coq")
 local indent_line = require("indent_blankline")
+local telescope = require("telescope")
+local project_nvim = require("project_nvim")
 
 catppuccino.setup({
     colorscheme = "neon_latte",
@@ -51,7 +57,7 @@ catppuccino.setup({
         telescope = true,
         nvimtree = {enabled = true, show_root = true},
         which_key = true,
-        indent_blankline = {enabled = false, colored_indent_levels = false},
+        indent_blankline = {enabled = true, colored_indent_levels = false},
         dashboard = false,
         neogit = true,
         vim_sneak = false,
@@ -65,7 +71,6 @@ catppuccino.setup({
     }
 })
 
-vim.cmd[[colorscheme catppuccino]]
 
 nvim_gps.setup({
 		icons = {
@@ -101,6 +106,7 @@ lualine.setup({
 colorizer.setup({
 	"css";
 	"javascript";
+	lua = { mode = "background" };
 	html= { mode = "background" };
 }, { mode = "foreground" })
 
@@ -180,3 +186,28 @@ indent_line.setup({
 	char = "|",
 	buftype_exclude = {"terminal"}
 })
+
+project_nvim.setup({
+    -- show_hidden = true
+})
+
+--set up projects to work with telescope
+telescope.load_extension('projects')
+
+telescope.setup({
+    extensions = {
+	projects = {
+	    
+	}
+    }
+})
+
+lsp_colors.setup({
+    Error = "#AA0000",
+    Warning = "#e0af68",
+    Information = "#00A0FF",
+    Hint = "#00FF00"
+})
+
+-- deploying the theme
+vim.cmd[[colorscheme catppuccino]]
