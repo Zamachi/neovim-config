@@ -29,7 +29,8 @@ which_key.register({
 		name = "Toggles",
 		T = { "<cmd>Twilight<cr>", "Toggle Twilight" },
 		N = { "<cmd>NvimTreeToggle<cr>", "Toggle Neovim project tree" },
-		s = {"<cmd>SymbolsOutline<cr>", "Toggle symbol hierarchy" }
+		s = {"<cmd>SymbolsOutline<cr>", "Toggle symbol hierarchy" },
+		e = {"<cmd>LspTroubleToggle<cr>", "Toggle error list"}
 	},
 	s = {
 		name = "Search...",

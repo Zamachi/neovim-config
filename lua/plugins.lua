@@ -61,7 +61,7 @@ return require('packer').startup(function()
 	use { 'ms-jpq/coq.thirdparty', branch="3p" } -- third party features & integration
 
 	use { 'p00f/nvim-ts-rainbow' }
-	use { 'yamatsum/nvim-cursorline' }
+--	use { 'yamatsum/nvim-cursorline', branch = "nightly" }
 	use { 'SmiteshP/nvim-gps' }
 	use { 'nvim-lua/lsp-status.nvim' }
 	use {
@@ -96,6 +96,9 @@ return require('packer').startup(function()
 	
 	use 'ahmedkhalf/project.nvim'
 
+	use 'windwp/nvim-autopairs'
 
-
+	use 'navarasu/onedark.nvim'
+    use 'akinsho/bufferline.nvim'
+    
 end)
