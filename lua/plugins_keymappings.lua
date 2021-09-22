@@ -23,17 +23,16 @@ which_key.register({
 	b = {
 		name = "Buffer Management",
 		b = { "<cmd>Telescope buffers<cr>", "Switch to a buffer" },
-		K = {"<cmd>bd<cr>", "Kill a current buffer"}
+		K = {"<cmd>bd<cr>", "Kill a current buffer"},
 	},
 	t = {
 		name = "Toggles",
-		T = { "<cmd>Twilight<cr>", "Toggle Twilight" },
 		N = { "<cmd>NvimTreeToggle<cr>", "Toggle Neovim project tree" },
 		s = {"<cmd>SymbolsOutline<cr>", "Toggle symbol hierarchy" },
 		e = {"<cmd>LspTroubleToggle<cr>", "Toggle error list"}
 	},
 	s = {
-		name = "Search...",
+		name = "Searching...",
 		b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer"}
 	},
 	g = {
@@ -42,7 +41,12 @@ which_key.register({
 	},
 	p = {
 		name = "Project management",
-		p = {"<cmd>Telescope projects<cr>", "Open recent projects..."}
-	}
+		p = {"<cmd>Telescope project display_type=full<cr>", "Open projects..."}
+	},
+    q = {
+        name = "Session management",
+        s = {"<cmd>SaveSession<cr>", "Save session for cwd"},
+        r = {"<cmd>RestoreSession<cr>", "Restore a previous session"}
+    }
 
 }, { prefix = "<Leader>" })

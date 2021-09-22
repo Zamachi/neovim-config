@@ -30,7 +30,6 @@ return require('packer').startup(function()
 	}
 	
 	use { "folke/which-key.nvim" }
-	use { "folke/twilight.nvim" }
 
 	use { "norcalli/nvim-colorizer.lua" }
 
@@ -54,7 +53,7 @@ return require('packer').startup(function()
 		}
 	}
 
-	use 'sindrets/diffview.nvim'
+	--use 'sindrets/diffview.nvim'
 	
 	use { 'ms-jpq/coq_nvim', branch="coq" } -- Coq completion
 	use { 'ms-jpq/coq.artifacts', branch="artifacts" } -- snippets
@@ -77,11 +76,6 @@ return require('packer').startup(function()
 		  "folke/trouble.nvim",
 		    requires = "kyazdani42/nvim-web-devicons",
 	}
-	
-	use { -- possibly unnecessary
-		'onsails/vimway-lsp-diag.nvim'
-	}
-	
 	-- slicno kao Treemacs UI symbol viewer
 	use 'simrat39/symbols-outline.nvim'
 
@@ -93,12 +87,15 @@ return require('packer').startup(function()
 	
 	-- linije za indentaciju (visual aid)
 	use 'lukas-reineke/indent-blankline.nvim'
-	
-	use 'ahmedkhalf/project.nvim'
 
 	use 'windwp/nvim-autopairs'
 
 	use 'navarasu/onedark.nvim'
-    use 'akinsho/bufferline.nvim'
-    
+    use 'nvim-telescope/telescope-project.nvim'
+    use 'preservim/nerdcommenter'
+    use 'rmagatti/auto-session'
+    use 'sbdchd/neoformat'
+
+
+
 end)

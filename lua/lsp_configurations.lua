@@ -1,12 +1,12 @@
 -- lightbulb prikazivanje
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
-
 local lsp_config = require("lspconfig")
 local lsp_installer = require("nvim-lsp-installer")
 local trouble_lsp = require("trouble")
 local lsp_signature = require("lsp_signature")
 local lsp_status = require("lsp-status")
+local lsp_colors = require("lsp-colors")
 
 --lsp_installer.on_server_ready(function(server)
 --	    local opts = {}
@@ -85,5 +85,26 @@ lsp_signature.setup({
 })
 
 trouble_lsp.setup({ -- trouble can also integrate with Telescope(put in plugin_setups)
-	position = "bottom"
+	position = "bottom",
+    icons=true,
+    mode = "lsp_workspace_diagnostics",
+    fold_open = "", -- icon used for open folds
+    fold_closed = "", -- icon used for closed folds
+       signs = {
+        -- icons / text used for a diagnostic
+        error = "",
+        warning = "",
+        hint = "",
+        information = "",
+        other = "﫠"
+    },
+    indent_lines=true, 
+    use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+})
+
+lsp_colors.setup({
+    Error = "#AA0000",
+    Warning = "#e0af68",
+    Information = "#00A0FF",
+    Hint = "#00FF00"
 })

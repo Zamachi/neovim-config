@@ -47,9 +47,14 @@ vim.cmd('set formatoptions-=o')
 vim.cmd('set clipboard=unnamed')
 
 -- kada smo 8 linija daleko od dna, tek tada pocinje da skorluje, znaci neki offset koji kaze kada da pocnemo skrolovati
-vim.cmd('set scrolloff=8')
+vim.cmd('set scrolloff=12')
 
 -- setuje putanju do browsera koji se otvara kada smo u Normal modu, hoverujemo preko linka i pretisnemo "gx"
 if vim.fn.has('win32') == 1 then
     --vim.cmd('set g:netrw_gx="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"')
 end
+
+vim.cmd('filetype plugin on')
+
+--preporuceno za rad sa auto-session
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
