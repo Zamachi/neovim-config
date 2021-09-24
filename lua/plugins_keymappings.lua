@@ -3,6 +3,9 @@ local which_key = require("which-key")
 -- U CommitMessage (kada se u Neogit statusu pretisne c pa opet c za Commit) omogucava da se komituje sa C-c C-c, umesto :wq
 vim.cmd("autocmd FileType NeogitCommitMessage nnoremap <buffer> <C-c><C-c> :wq<CR>")
 
+--remapuje gx da koristi open-browser-smart-search za link pod kursorom
+vim.api.nvim_set_keymap('n','gx', '<Plug>(openbrowser-smart-search)<cr>', {})
+
 
 which_key.register({
 	f = {
@@ -41,12 +44,22 @@ which_key.register({
 	},
 	p = {
 		name = "Project management",
-		p = {"<cmd>Telescope project display_type=full<cr>", "Open projects..."}
+		p = {"<cmd>Telescope project display_type=full<cr>", "Open projects..."},
+        e = {"<cmd>lua.require('nvim-projectconfig').edit_project_config()<cr>", "Edit current project's configuration"},
+        l = {"<cmd>lua.require('nvim-projectconfig').load_project_config()<cr>", "Load project configuration"}
 	},
     q = {
         name = "Session management",
         s = {"<cmd>SaveSession<cr>", "Save session for cwd"},
         r = {"<cmd>RestoreSession<cr>", "Restore a previous session"}
+    },
+    h = {
+        name = "GitSigns",
+        -- PRAZNO ZNACI DA CUVAMO DEFAULT KEYBINDING
+    },
+    c = {
+        name = "Comment(ing)"
+         --PRAZNO ZNACI DA CUVAMO DEFAULT KEYBINDING
     }
 
 }, { prefix = "<Leader>" })

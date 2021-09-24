@@ -7,6 +7,34 @@ local trouble_lsp = require("trouble")
 local lsp_signature = require("lsp_signature")
 local lsp_status = require("lsp-status")
 local lsp_colors = require("lsp-colors")
+--local nvim_projectconfig = require("nvim-projectconfig") -- possibly unnecessary
+
+--promeni znake za LSP diagnostics u gutter-u(moze se izmestiti u eksterne fajlove)
+vim.fn.sign_define(
+  "LspDiagnosticsSignError",
+  { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignWarning",
+  { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignHint",
+  { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignInformation",
+  { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
+)
+
+
+lsp_status.config({
+    indicator_errors = ' ',
+    indicator_warnings = ' ',
+    indicator_info = ' ',
+    indicator_hint = ' ',
+    indicator_ok = '﫠',
+})
 
 --lsp_installer.on_server_ready(function(server)
 --	    local opts = {}
@@ -20,6 +48,22 @@ local lsp_colors = require("lsp-colors")
 --	server:setup(opts)
 --	vim.cmd [[ do User LspAttachBuffers ]]
 --end)
+
+lsp_config.jsonls.setup{
+    cmd = {
+        'C:\\Users\\Zamachi\\node_modules\\vscode-langservers-extracted\\bin\\vscode-json-language-server', --path to server executable in cmd
+        '--stdio' -- launch args
+    },
+    commands = {
+        Format = {
+            function()
+                vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+            end
+        }
+    },
+    filetypes = {"json"}
+}
+
 
 lsp_config.pyright.setup{
 }
@@ -108,3 +152,13 @@ lsp_colors.setup({
     Information = "#00A0FF",
     Hint = "#00FF00"
 })
+
+-- Ovo bi trebalo automatski da ocita konfiguraciju projekta kada se promeni current working directory
+vim.cmd[[
+augroup NvimProjectConfig
+ autocmd!
+ autocmd DirChanged * lua require('nvim-projectconfig').load_project_config()
+augroup end
+]]
+
+

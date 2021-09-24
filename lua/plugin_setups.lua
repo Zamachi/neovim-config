@@ -184,9 +184,17 @@ telescope.load_extension('project')
 telescope.setup({
     extensions = {
 	    project = {
-	    }
+	    },
+        openbrowser = {
+            bookmarks = {
+                ['Google'] = 'https://www.google.com/'
+            },
+            --bookmark_filepath = '~'
+        }
     }
 })
+
+telescope.load_extension('openbrowser')
 
 
 autopairs.setup({

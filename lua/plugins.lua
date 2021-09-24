@@ -95,7 +95,8 @@ return require('packer').startup(function()
     use 'preservim/nerdcommenter'
     use 'rmagatti/auto-session'
     use 'sbdchd/neoformat'
-
-
-
+    use 'kevinhwang91/nvim-hlslens'
+    use 'windwp/nvim-projectconfig'
+    use 'tyru/open-browser.vim'
+    use 'tamago324/telescope-openbrowser.nvim' -- might not be needed!
 end)
