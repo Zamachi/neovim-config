@@ -99,4 +99,9 @@ return require('packer').startup(function()
     use 'windwp/nvim-projectconfig'
     use 'tyru/open-browser.vim'
     use 'tamago324/telescope-openbrowser.nvim' -- might not be needed!
+
+
+    use 'glepnir/zephyr-nvim'
+    use 'EdenEast/nightfox.nvim'
+    use 'sainnhe/sonokai'
 end)

@@ -1,7 +1,7 @@
 
 require("nvim-treesitter.configs").setup{
 	--Koje parsere instalirati
-	ensure_installed = { "c", "cpp", "json", "python", "lua" },
+	ensure_installed = { "c", "cpp", "json", "python", "lua", "html", "css", "javascript" },
 	--Ukljucuje syntax highlighting od Treesittera
 	highlight = {
 		enable = true

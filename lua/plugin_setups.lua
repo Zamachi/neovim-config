@@ -201,6 +201,8 @@ autopairs.setup({
     
 })
 
+local zephyr = require("zephyr")
+--zephyr.teal
 
 -- deploying the theme
-vim.cmd[[colorscheme onedark]]
+vim.cmd[[colorscheme palefox]]
