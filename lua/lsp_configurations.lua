@@ -1,11 +1,8 @@
--- lightbulb prikazivanje
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 local lsp_config = require("lspconfig")
 local lsp_installer = require("nvim-lsp-installer")
 local trouble_lsp = require("trouble")
 local lsp_signature = require("lsp_signature")
-local lsp_status = require("lsp-status")
 local lsp_colors = require("lsp-colors")
 --local nvim_projectconfig = require("nvim-projectconfig") -- possibly unnecessary
 
@@ -26,15 +23,6 @@ vim.fn.sign_define(
   "LspDiagnosticsSignInformation",
   { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
 )
-
-
-lsp_status.config({
-    indicator_errors = ' ',
-    indicator_warnings = ' ',
-    indicator_info = ' ',
-    indicator_hint = ' ',
-    indicator_ok = '﫠',
-})
 
 --lsp_installer.on_server_ready(function(server)
 --	    local opts = {}
@@ -147,8 +135,8 @@ trouble_lsp.setup({ -- trouble can also integrate with Telescope(put in plugin_s
 })
 
 lsp_colors.setup({
-    Error = "#AA0000",
-    Warning = "#e0af68",
+    Error = "#CC0000",
+    Warning = "#CCCC00",
     Information = "#00A0FF",
     Hint = "#00FF00"
 })

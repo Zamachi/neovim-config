@@ -53,14 +53,13 @@ return require('packer').startup(function()
 		}
 	}
 
-	--use 'sindrets/diffview.nvim'
+	use 'sindrets/diffview.nvim'
 	
 	use { 'ms-jpq/coq_nvim', branch="coq" } -- Coq completion
 	use { 'ms-jpq/coq.artifacts', branch="artifacts" } -- snippets
 	use { 'ms-jpq/coq.thirdparty', branch="3p" } -- third party features & integration
 
 	use { 'p00f/nvim-ts-rainbow' }
---	use { 'yamatsum/nvim-cursorline', branch = "nightly" }
 	use { 'SmiteshP/nvim-gps' }
 	use { 'nvim-lua/lsp-status.nvim' }
 	use {
@@ -82,9 +81,6 @@ return require('packer').startup(function()
 	--omogucava da konfigurisem LSP sa JSON fajlovima kao Coc-Settings
 	use 'tamago324/nlsp-settings.nvim'
 
-	-- lightbulb na liniji koda gde postoji code action
-	use 'kosayoda/nvim-lightbulb'
-	
 	-- linije za indentaciju (visual aid)
 	use 'lukas-reineke/indent-blankline.nvim'
 
@@ -93,6 +89,7 @@ return require('packer').startup(function()
 	use 'navarasu/onedark.nvim'
     use 'nvim-telescope/telescope-project.nvim'
     use 'preservim/nerdcommenter'
+    -- https://github.com/rmagatti/auto-session/
     use 'rmagatti/auto-session'
     use 'sbdchd/neoformat'
     use 'kevinhwang91/nvim-hlslens'
@@ -100,8 +97,7 @@ return require('packer').startup(function()
     use 'tyru/open-browser.vim'
     use 'tamago324/telescope-openbrowser.nvim' -- might not be needed!
 
-
-    use 'glepnir/zephyr-nvim'
-    use 'EdenEast/nightfox.nvim'
-    use 'sainnhe/sonokai'
+    use 'NTBBloodbath/doom-one.nvim'
+    use 'liuchengxu/space-vim-theme'
+    use 'glepnir/lspsaga.nvim'
 end)

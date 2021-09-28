@@ -5,7 +5,7 @@ vim.cmd('set termguicolors')
 -- prikazuje broj linije sa leve strane
 vim.cmd('set number')
 -- podesavanje fonta - FONT MORA BITI INSTALIRAN I NERD COMPATIBLE
-vim.cmd('set guifont=FiraCode\\ NF\\:h12')
+vim.cmd('set guifont=FiraCode\\ NF\\:h12:w57')
 vim.cmd('set hidden') -- zadrzava bilo koji bafer koji smo editovali u pozadini(moze se otvoriti opet), tako da uvek mozemo da se vratimo na njega i sacuvamo ga/discardujemo promene
 
 -- kazemo mu da ne kesira podatke i ne bekapuje
@@ -48,11 +48,6 @@ vim.cmd('set clipboard=unnamed')
 
 -- kada smo 8 linija daleko od dna, tek tada pocinje da skorluje, znaci neki offset koji kaze kada da pocnemo skrolovati
 vim.cmd('set scrolloff=12')
-
--- setuje putanju do browsera koji se otvara kada smo u Normal modu, hoverujemo preko linka i pretisnemo "gx"
-if vim.fn.has('win32') == 1 then
-    --vim.cmd('set g:netrw_gx="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"')
-end
 
 vim.cmd('filetype plugin on')
 

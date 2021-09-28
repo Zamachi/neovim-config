@@ -18,8 +18,6 @@ local le_coq = require("coq")
 local indent_line = require("indent_blankline")
 local telescope = require("telescope")
 local autopairs = require("nvim-autopairs")
---local nvim_cursorline = require("nvim-cursorline") --could break setup
-
 
 catppuccino.setup({
     colorscheme = "neon_latte",
@@ -92,10 +90,17 @@ nvim_gps.setup({
 		separator = ' > ',
 })
 
+lsp_status.config({
+    indicator_errors = ' ',
+    indicator_warnings = ' ',
+    indicator_info = ' ',
+    indicator_hint = ' ',
+    indicator_ok = '﫠',
+})
 
 lualine.setup({
-	options = { 
-		--theme = "catppuccino"
+	options = {
+        --theme = "catppuccino"
 		theme = "onedark"
 	},
 	extensions = { "nvim-tree"},
@@ -174,10 +179,6 @@ indent_line.setup({
 	buftype_exclude = {"terminal"}
 })
 
---project_nvim.setup({
-    -- show_hidden = true
---})
-
 --ocitava telescope extenziju za projekte 
 telescope.load_extension('project')
 
@@ -198,11 +199,7 @@ telescope.load_extension('openbrowser')
 
 
 autopairs.setup({
-    
 })
 
-local zephyr = require("zephyr")
---zephyr.teal
-
 -- deploying the theme
-vim.cmd[[colorscheme palefox]]
+vim.cmd('colorscheme space_vim_theme')
