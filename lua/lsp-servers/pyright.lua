@@ -1,3 +1,5 @@
 -- potrebno je prethodno instalirati ga, i da bude dostupan na putanji
-require('lspconfig').pyright.setup{
-}
+local coq = require"coq"
+require('lspconfig').pyright.setup(
+    coq.lsp_ensure_capabilities({}) 
+)

@@ -26,7 +26,8 @@ require("nvim-treesitter.configs").setup{
 		max_file_lines = nil,
 		-- colors = {}, -- Lua tabela sa hexadec stringovima za boje koje se koriste
 		-- termcolors = {} -- Isto kao i iznad, samo za Terminal Neovim
-	}
+	},
+    autopairs = { enable = true }
 }
 -- za code folding (kada kod ima nesto ugnjezdeno/viselinijski komentar pa se "collapsuje")
 vim.api.nvim_exec([[

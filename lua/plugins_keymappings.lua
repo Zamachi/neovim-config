@@ -26,7 +26,7 @@ which_key.register({
 	b = {
 		name = "Buffer Management",
 		b = { "<cmd>Telescope buffers<cr>", "Switch to a buffer" },
-		K = {"<cmd>bd<cr>", "Kill a current buffer"},
+		K = {"<cmd>Bdelete<cr>", "Kill a current buffer"},
         h = { "<cmd>bprevious<cr>", "Previous buffer"},
         l = { "<cmd>bnext<cr>", "Next buffer"},
 	},
@@ -62,6 +62,22 @@ which_key.register({
     c = {
         name = "Comment(ing)"
          --PRAZNO ZNACI DA CUVAMO DEFAULT KEYBINDING
+    },
+    l = {
+        name = "LSP Activities",
+        g = {
+            name = "GoTo",
+            h = {"<cmd>Lspsaga lsp_finder<cr>", "Open a finder"},
+            r = {"<cmd>Lspsaga rename<cr>", "Rename symbol"},
+            d = {"<cmd>Lspsaga preview_definition<cr>", "Preview symbol definition"},
+
+
+        },
+        c = {
+            name = "Code Action(s)",
+            a = {"<cmd>Lspsaga code_action<cr>", "Open code actions"}
+        },
+        K = { "<cmd>Lspsaga hover_doc<cr>", "Show documentation"}
     }
 
 }, { prefix = "<Leader>" })

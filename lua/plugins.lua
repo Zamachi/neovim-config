@@ -54,7 +54,7 @@ return require('packer').startup(function()
 	}
 
 	use 'sindrets/diffview.nvim'
-	
+    -- https://github.com/ms-jpq/coq_nvim
 	use { 'ms-jpq/coq_nvim', branch="coq" } -- Coq completion
 	use { 'ms-jpq/coq.artifacts', branch="artifacts" } -- snippets
 	use { 'ms-jpq/coq.thirdparty', branch="3p" } -- third party features & integration
@@ -83,9 +83,10 @@ return require('packer').startup(function()
 
 	-- linije za indentaciju (visual aid)
 	use 'lukas-reineke/indent-blankline.nvim'
-
+    
+    -- https://github.com/windwp/nvim-autopairs
 	use 'windwp/nvim-autopairs'
-
+    -- https://github.com/joshdick/onedark.vim
 	use 'navarasu/onedark.nvim'
     use 'nvim-telescope/telescope-project.nvim'
     use 'preservim/nerdcommenter'
@@ -99,6 +100,16 @@ return require('packer').startup(function()
 
     use 'NTBBloodbath/doom-one.nvim'
     use 'liuchengxu/space-vim-theme'
+    -- https://github.com/glepnir/lspsaga.nvim
     use 'glepnir/lspsaga.nvim'
 
+    -- https://github.com/famiu/bufdelete.nvim
+    use 'famiu/bufdelete.nvim'
+    -- https://github.com/jghauser/mkdir.nvim
+    use {
+        'jghauser/mkdir.nvim',
+        config = function()
+            require('mkdir')
+        end
+    }
 end)

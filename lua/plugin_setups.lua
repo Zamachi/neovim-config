@@ -108,7 +108,7 @@ lualine.setup({
         lualine_c = {
             'filename',
             -- gps je za breadcrumbs na statusline-u
-            { nvim_gps.get_location, condition = nvim_gps.is_available }, 	
+            { nvim_gps.get_location, condition = nvim_gps.is_available },
         },
         lualine_x = {
             { lsp_status.status  } ,

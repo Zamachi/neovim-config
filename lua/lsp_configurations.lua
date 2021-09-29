@@ -5,8 +5,8 @@ local trouble_lsp = require("trouble")
 local lsp_signature = require("lsp_signature")
 local lsp_colors = require("lsp-colors")
 --local nvim_projectconfig = require("nvim-projectconfig") -- possibly unnecessary
+local lsp_saga = require('lspsaga')
 
-require('lspsaga')
 
 --promeni znake za LSP diagnostics u gutter-u(moze se izmestiti u eksterne fajlove)
 vim.fn.sign_define(
@@ -87,6 +87,21 @@ lsp_colors.setup({
     Information = "#00A0FF",
     Hint = "#00FF00"
 })
+
+lsp_saga.init_lsp_saga{
+    use_saga_diagnostic_sign = false,
+    code_action_prompt = {
+        enable = false
+    },
+    code_action_keys = {
+        quit = 'q',
+        exec = '<CR>'
+    },
+    rename_action_keys = {
+        quit = "q",
+        exec = "<CR>"
+    }
+}
 
 -- Ovo bi trebalo automatski da ocita konfiguraciju projekta kada se promeni current working directory
 vim.cmd[[
