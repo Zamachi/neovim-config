@@ -27,6 +27,8 @@ which_key.register({
 		name = "Buffer Management",
 		b = { "<cmd>Telescope buffers<cr>", "Switch to a buffer" },
 		K = {"<cmd>bd<cr>", "Kill a current buffer"},
+        h = { "<cmd>bprevious<cr>", "Previous buffer"},
+        l = { "<cmd>bnext<cr>", "Next buffer"},
 	},
 	t = {
 		name = "Toggles",

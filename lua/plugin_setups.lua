@@ -99,21 +99,21 @@ lsp_status.config({
 })
 
 lualine.setup({
-	options = {
+    options = {
         --theme = "catppuccino"
-		theme = "onedark"
-	},
-	extensions = { "nvim-tree"},
-	sections = {
-		lualine_c = {
-			'filename',
-			-- gps je za breadcrumbs na statusline-u
-			{ nvim_gps.get_location, condition = nvim_gps.is_available }, 	
-		},
-		lualine_x = {
-			{ lsp_status.status  } ,
-			'encoding', 'fileformat', 'filetype'},
-	}
+        theme = "onedark"
+    },
+    extensions = { "nvim-tree"},
+    sections = {
+        lualine_c = {
+            'filename',
+            -- gps je za breadcrumbs na statusline-u
+            { nvim_gps.get_location, condition = nvim_gps.is_available }, 	
+        },
+        lualine_x = {
+            { lsp_status.status  } ,
+            'encoding', 'fileformat', 'filetype'},
+    }
 })
 
 colorizer.setup({
@@ -202,4 +202,4 @@ autopairs.setup({
 })
 
 -- deploying the theme
-vim.cmd('colorscheme space_vim_theme')
+vim.cmd('colorscheme doom-one')

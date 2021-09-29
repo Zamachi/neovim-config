@@ -24,10 +24,10 @@ return require('packer').startup(function()
 
 	use "Pocco81/Catppuccino.nvim"
 
-	use {
-		'hoob3rt/lualine.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true}
-	}
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 	
 	use { "folke/which-key.nvim" }
 
@@ -100,4 +100,5 @@ return require('packer').startup(function()
     use 'NTBBloodbath/doom-one.nvim'
     use 'liuchengxu/space-vim-theme'
     use 'glepnir/lspsaga.nvim'
+
 end)

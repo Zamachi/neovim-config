@@ -6,6 +6,8 @@ local lsp_signature = require("lsp_signature")
 local lsp_colors = require("lsp-colors")
 --local nvim_projectconfig = require("nvim-projectconfig") -- possibly unnecessary
 
+require('lspsaga')
+
 --promeni znake za LSP diagnostics u gutter-u(moze se izmestiti u eksterne fajlove)
 vim.fn.sign_define(
   "LspDiagnosticsSignError",
@@ -37,64 +39,9 @@ vim.fn.sign_define(
 --	vim.cmd [[ do User LspAttachBuffers ]]
 --end)
 
-lsp_config.jsonls.setup{
-    cmd = {
-        'C:\\Users\\Zamachi\\node_modules\\vscode-langservers-extracted\\bin\\vscode-json-language-server', --path to server executable in cmd
-        '--stdio' -- launch args
-    },
-    commands = {
-        Format = {
-            function()
-                vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-            end
-        }
-    },
-    filetypes = {"json"}
-}
-
-
-lsp_config.pyright.setup{
-}
-
-local system_name
-    
-if vim.fn.has('mac') == 1 then
-    system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-    system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-    system_name = "Windows"
-else 
-    system_name = "Unsupported"
-end
-
---sumneko zahteva posebnu konfiguraciju na Windowsu(apparently)
---ovaj root path je mozda drugaciji na drugim platformama(Linux/Mac), proveriti?
-local sumneko_root_path = vim.fn.stdpath('data')..'/lsp_servers/sumneko_lua/extension/server'
-local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server" 
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-lsp_config.sumneko_lua.setup{
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
-    settings = {
-	Lua = {
-	    runtime = {
-		version="LuaJIT",
-		path = runtime_path,
-		},
-	    diagnostics = {
-		globals = {'vim'},
-	    },
-	    workspace = {
-		library = vim.api.nvim_get_runtime_file("", true),
-	    },
-	    telemetry = { enable = false }
-	}
-    }
-}
+require('lsp-servers/pyright')
+require('lsp-servers/sumneko_lua')
+require('lsp-servers/jsonls')
 
 lsp_signature.setup({
     bind = true,
