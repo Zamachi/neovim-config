@@ -2,7 +2,7 @@
 vim.g.coq_settings = { auto_start = true }
 
 -- nvimtree integration for project.nvim
-vim.g.nvim_tree_update_cwd = 1
+-- vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_respect_buf_cwd = 1
 
 local catppuccino = require("catppuccino")
@@ -18,9 +18,10 @@ local le_coq = require("coq")
 local indent_line = require("indent_blankline")
 local telescope = require("telescope")
 local autopairs = require("nvim-autopairs")
+local nvim_tree = require("nvim-tree")
 
 catppuccino.setup({
-    colorscheme = "neon_latte",
+    colorscheme = "dark_catppuccino",
     transparency = false,
     term_colors = false,
     styles = {
@@ -201,5 +202,9 @@ telescope.load_extension('openbrowser')
 autopairs.setup({
 })
 
+nvim_tree.setup({
+    nvim_tree_update_cwd=1
+})
+
 -- deploying the theme
-vim.cmd('colorscheme doom-one')
+vim.cmd('colorscheme onedark')
