@@ -53,7 +53,7 @@ return require('packer').startup(function()
 			'nvim-lua/plenary.nvim'
 		}
 	}
-
+    -- https://github.com/sindrets/diffview.nvim
 	use 'sindrets/diffview.nvim'
     -- https://github.com/ms-jpq/coq_nvim
 	use { 'ms-jpq/coq_nvim', branch="coq" } -- Coq completion
@@ -72,7 +72,7 @@ return require('packer').startup(function()
 	}
     -- https://github.com/folke/lsp-colors.nvim
 	use 'folke/lsp-colors.nvim'
-
+    -- https://github.com/ray-x/lsp_signature.nvim 
 	use {
 		"ray-x/lsp_signature.nvim",
 	}
@@ -96,6 +96,7 @@ return require('packer').startup(function()
 	use 'windwp/nvim-autopairs'
     -- https://github.com/joshdick/onedark.vim
 	use 'navarasu/onedark.nvim'
+    -- https://github.com/nvim-telescope/telescope-project.nvim
     use 'nvim-telescope/telescope-project.nvim'
     -- https://github.com/preservim/nerdcommenter
     use 'preservim/nerdcommenter'
