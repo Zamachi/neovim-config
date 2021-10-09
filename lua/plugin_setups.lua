@@ -203,7 +203,7 @@ autopairs.setup({
 })
 
 nvim_tree.setup({
-    nvim_tree_update_cwd=1
+    update_cwd=true
 })
 
 -- deploying the theme
