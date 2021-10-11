@@ -42,7 +42,7 @@ return require('packer').startup(function()
 		'kyazdani42/nvim-tree.lua',
 		requires = 'kyazdani42/nvim-web-devicons'
 		}
-
+    -- https://github.com/neovim/nvim-lspconfig
 	use { "neovim/nvim-lspconfig" }
 	use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 	
