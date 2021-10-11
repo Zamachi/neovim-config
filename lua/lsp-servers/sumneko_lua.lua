@@ -13,7 +13,12 @@ end
 
 --sumneko zahteva posebnu konfiguraciju na Windowsu(apparently)
 --ovaj root path je mozda drugaciji na drugim platformama(Linux/Mac), proveriti?
-local sumneko_root_path = vim.fn.stdpath('data')..'/lsp_servers/sumneko_lua/extension/server'
+
+--Koristiti putanju ispod ako je server instaliran preko :LspInstall
+--local sumneko_root_path = vim.fn.stdpath('data')..'/lsp_servers/sumneko_lua/extension/server'
+
+--koristiti putanju ispod ako je sumneko_lua server instaliran kao VScode ekstenzija
+local sumneko_root_path = 'C:/Users/Zamachi/.vscode/extensions/sumneko.lua-2.4.1/server'
 local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server" 
 
 local runtime_path = vim.split(package.path, ';')
