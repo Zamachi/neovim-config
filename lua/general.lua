@@ -26,7 +26,7 @@ vim.cmd('set expandtab') -- u insert
 vim.cmd('set smartindent') -- dodatak autoindentu
 
 -- nakon sto zavrsimo pretragu sa / , stvari ne ostaju highlightovane
-vim.cmd('set nohlsearch')
+-- vim.cmd('set nohlsearch')
 
 -- ako ne zelimo text wrapping ,ukljuciti sledecu opciju
 --vim.cmd('set nowrap')

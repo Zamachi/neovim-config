@@ -7,7 +7,7 @@ vim.g.nvim_tree_respect_buf_cwd = 1
 
 local catppuccino = require("catppuccino")
 local onedark = require("onedark")
-local lualine = require('lualine')
+local lualine = require("lualine")
 local colorizer = require("colorizer")
 local which_key = require("which-key")
 local gitsigns = require("gitsigns")
@@ -21,125 +21,128 @@ local autopairs = require("nvim-autopairs")
 local nvim_tree = require("nvim-tree")
 
 catppuccino.setup({
-    colorscheme = "dark_catppuccino",
-    transparency = false,
-    term_colors = false,
-    styles = {
-        comments = "bold",
-        functions = "NONE",
-        keywords = "NONE",
-        strings = "NONE",
-        variables = "NONE"
-    },
-    integrations = {
-        treesitter = true,
-        native_lsp = {
-            enabled = true,
-            virtual_text = {
-                errors = "italic",
-                hints = "italic",
-                warnings = "italic",
-                information = "italic"
-            },
-            underlderlines = {
-                errors = "underline",
-                hints = "underline",
-                warnings = "underline",
-                information = "underline"
-            }
-        },
-        lsp_trouble = true,
-        lsp_saga = false,
-        gitgutter = false,
-        gitsigns = true,
-        telescope = true,
-        nvimtree = {enabled = true, show_root = true},
-        which_key = true,
-        indent_blankline = {enabled = true, colored_indent_levels = false},
-        dashboard = false,
-        neogit = true,
-        vim_sneak = false,
-        fern = false,
-        barbar = false,
-        bufferline = false,
-        markdown = false,
-        lightspeed = false,
-        ts_rainbow = true,
-        hop = false
-    }
+	colorscheme = "dark_catppuccino",
+	transparency = false,
+	term_colors = false,
+	styles = {
+		comments = "bold",
+		functions = "NONE",
+		keywords = "NONE",
+		strings = "NONE",
+		variables = "NONE",
+	},
+	integrations = {
+		treesitter = true,
+		native_lsp = {
+			enabled = true,
+			virtual_text = {
+				errors = "italic",
+				hints = "italic",
+				warnings = "italic",
+				information = "italic",
+			},
+			underlderlines = {
+				errors = "underline",
+				hints = "underline",
+				warnings = "underline",
+				information = "underline",
+			},
+		},
+		lsp_trouble = true,
+		lsp_saga = false,
+		gitgutter = false,
+		gitsigns = true,
+		telescope = true,
+		nvimtree = { enabled = true, show_root = true },
+		which_key = true,
+		indent_blankline = { enabled = true, colored_indent_levels = false },
+		dashboard = false,
+		neogit = true,
+		vim_sneak = false,
+		fern = false,
+		barbar = false,
+		bufferline = false,
+		markdown = false,
+		lightspeed = false,
+		ts_rainbow = true,
+		hop = false,
+	},
 })
 
 vim.g.onedark_style = "deep"
 vim.g.onedark_transparent_background = false
-onedark.setup({
-    
-})
+onedark.setup({})
 
 nvim_gps.setup({
-		icons = {
-			["class-name"] = ' ',      -- Classes and class-like objects
-			["function-name"] = ' ',   -- Functions
-			["method-name"] = ' ',      -- Methods (functions inside class-like objects)
-		    ["container-name"] = '⛶ '
-        },
-		-- Disable any languages individually over here
-		-- Any language not disabled here is enabled by default
-		languages = {
-			-- ["bash"] = false,
-			-- ["go"] = false,
-		},
-		separator = ' > ',
+	icons = {
+		["class-name"] = " ", -- Classes and class-like objects
+		["function-name"] = " ", -- Functions
+		["method-name"] = " ", -- Methods (functions inside class-like objects)
+		["container-name"] = "⛶ ",
+	},
+	-- Disable any languages individually over here
+	-- Any language not disabled here is enabled by default
+	languages = {
+		-- ["bash"] = false,
+		-- ["go"] = false,
+	},
+	separator = " > ",
 })
 
 lsp_status.config({
-    indicator_errors = ' ',
-    indicator_warnings = ' ',
-    indicator_info = ' ',
-    indicator_hint = ' ',
-    indicator_ok = '﫠',
+	indicator_errors = " ",
+	indicator_warnings = " ",
+	indicator_info = " ",
+	indicator_hint = " ",
+	indicator_ok = "﫠",
 })
 
 lualine.setup({
-    options = {
-        --theme = "catppuccino"
-        theme = "onedark"
-    },
-    extensions = { "nvim-tree"},
-    sections = {
-        lualine_c = {
-            'filename',
-            -- gps je za breadcrumbs na statusline-u
-            { nvim_gps.get_location, condition = nvim_gps.is_available },
-        },
-        lualine_x = {
-            { lsp_status.status  } ,
-            'encoding', 'fileformat', 'filetype'},
-    }
+	options = {
+		--theme = "catppuccino"
+		theme = "onedark",
+	},
+	extensions = { "nvim-tree" },
+	sections = {
+		lualine_c = {
+			"filename",
+			-- gps je za breadcrumbs na statusline-u
+			{ nvim_gps.get_location, condition = nvim_gps.is_available },
+		},
+		lualine_x = {
+			{ lsp_status.status },
+			"encoding",
+			"fileformat",
+			"filetype",
+		},
+	},
 })
 
 colorizer.setup({
-	"css";
-	"javascript";
-	lua = { mode = "background" };
-	html= { mode = "background" };
-}, { mode = "foreground" })
-
-which_key.setup({
---empty means it's default settings
+	"css",
+	"javascript",
+	lua = { mode = "background" },
+	html = { mode = "background" },
+}, {
+	mode = "foreground",
 })
 
-neogit.setup({	
+which_key.setup({
+	--empty means it's default settings
+})
+
+neogit.setup({
 	disable_signs = false,
-  	disable_context_highlighting = false,
-    	disable_commit_confirmation = true,
-      	auto_refresh = true,
-        disable_builtin_notifications = false,
+	disable_context_highlighting = false,
+	disable_commit_confirmation = true,
+	auto_refresh = true,
+	disable_builtin_notifications = false,
 	commit_popup = {
 		kind = "split",
 	},
 	-- customize displayed signs
 	signs = {
-	-- { CLOSED, OPENED }
+		-- { CLOSED, OPENED }
 		section = { ">", "v" },
 		item = { ">", "v" },
 		hunk = { "", "" },
@@ -148,63 +151,57 @@ neogit.setup({
 		-- Neogit only provides inline diffs. If you want a more traditional way to look at diffs, you can use `sindrets/diffview.nvim`.
 		-- The diffview integration enables the diff popup, which is a wrapper around `sindrets/diffview.nvim`.
 		-- Requires you to have `sindrets/diffview.nvim` installed.
-		-- use { 
-			--   'TimUntersberger/neogit', 
-			--   requires = { 
-				--     'nvim-lua/plenary.nvim',
-			    	--     'sindrets/diffview.nvim' 
-			--   }
+		-- use {
+		--   'TimUntersberger/neogit',
+		--   requires = {
+		--     'nvim-lua/plenary.nvim',
+		--     'sindrets/diffview.nvim'
+		--   }
 		-- }
-		diffview = true 
+		diffview = true,
 	},
 	-- override/add mappings
 	--mappings = {
-		-- modify status buffer mappings
+	-- modify status buffer mappings
 	--	commit = {
-			-- Adds a mapping with "B" as key that does the "BranchPopup" command
-			--["B"] = "BranchPopup",
-			-- Removes the default mapping of "s"
-			--["s"] = "",
+	-- Adds a mapping with "B" as key that does the "BranchPopup" command
+	--["B"] = "BranchPopup",
+	-- Removes the default mapping of "s"
+	--["s"] = "",
 	--		["<C-c><C-c>"] = "Commit"
 	--	}
 	--}
 })
 
-gitsigns.setup({
-	
-})
-
+gitsigns.setup({})
 
 indent_line.setup({
 	char = "|",
-	buftype_exclude = {"terminal"}
+	buftype_exclude = { "terminal" },
 })
 
---ocitava telescope extenziju za projekte 
-telescope.load_extension('project')
+--ocitava telescope extenziju za projekte
+telescope.load_extension("project")
 
 telescope.setup({
-    extensions = {
-	    project = {
-	    },
-        openbrowser = {
-            bookmarks = {
-                ['Google'] = 'https://www.google.com/'
-            },
-            --bookmark_filepath = '~'
-        }
-    }
+	extensions = {
+		project = {},
+		openbrowser = {
+			bookmarks = {
+				["Google"] = "https://www.google.com/",
+			},
+			--bookmark_filepath = '~'
+		},
+	},
 })
 
-telescope.load_extension('openbrowser')
+telescope.load_extension("openbrowser")
 
-
-autopairs.setup({
-})
+autopairs.setup({})
 
 nvim_tree.setup({
-    update_cwd=true
+	update_cwd = true,
 })
 
 -- deploying the theme
-vim.cmd('colorscheme onedark')
+vim.cmd("colorscheme space_vim_theme")

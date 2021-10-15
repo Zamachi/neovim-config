@@ -102,7 +102,7 @@ return require('packer').startup(function()
     use 'preservim/nerdcommenter'
     -- https://github.com/rmagatti/auto-session/
     use 'rmagatti/auto-session'
-    use 'sbdchd/neoformat'
+    -- use 'sbdchd/neoformat'
     use 'kevinhwang91/nvim-hlslens'
     -- https://github.com/windwp/nvim-projectconfig
     use 'windwp/nvim-projectconfig'
@@ -117,10 +117,15 @@ return require('packer').startup(function()
     -- https://github.com/famiu/bufdelete.nvim
     use 'famiu/bufdelete.nvim'
     -- https://github.com/jghauser/mkdir.nvim
-    use {
+    use     {
         'jghauser/mkdir.nvim',
         config = function()
             require('mkdir')
         end
     }
+
+    -- https://github.com/itchyny/vim-cursorword
+    use {'itchyny/vim-cursorword'}
+    -- https://github.com/dense-analysis/ale
+    use {'dense-analysis/ale'}
 end)
