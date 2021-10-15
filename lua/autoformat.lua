@@ -1,3 +1,5 @@
+-- Da bi formatiranje radilo, potrebno je da formater binary bude na PATH-u.
+
 vim.g.ale_linters_explicit = 1
 vim.g.ale_disable_lsp = 1
 vim.g.ale_fix_on_save = 1
@@ -10,8 +12,8 @@ vim.g.ale_warn_about_trailing_whitespace = 0
 
 -- Set syntax checkers
 --vim.g.ale_linters = {
-	--python = { "flake8" },
-	--tex = { "chktex", "lacheck" },
+--python = { "flake8" },
+--tex = { "chktex", "lacheck" },
 --}
 
 -- Set syntax fixers
