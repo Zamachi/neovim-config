@@ -110,8 +110,8 @@ return require("packer").startup(function()
 
 	use("NTBBloodbath/doom-one.nvim")
 	use("liuchengxu/space-vim-theme")
-	-- https://github.com/glepnir/lspsaga.nvim
-	use("glepnir/lspsaga.nvim")
+	-- https://github.com/tami5/lspsaga.nvim 
+    use { 'tami5/lspsaga.nvim', branch = 'nvim51' }
 	-- https://github.com/famiu/bufdelete.nvim
 	use("famiu/bufdelete.nvim")
 	-- https://github.com/jghauser/mkdir.nvim
