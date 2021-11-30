@@ -16,3 +16,4 @@ vim.api.nvim_set_keymap('x', 'j', ":move '>+1<CR>gv-gv", {noremap=true, silent=t
 --Remap za save
 vim.api.nvim_set_keymap('i', '<C-s>', '<cmd>w<cr>', { noremap = true })
 
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})

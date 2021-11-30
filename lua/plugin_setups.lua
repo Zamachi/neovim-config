@@ -5,7 +5,6 @@ vim.g.coq_settings = { auto_start = true }
 -- vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_respect_buf_cwd = 1
 
-local catppuccino = require("catppuccino")
 local onedark = require("onedark")
 local lualine = require("lualine")
 local colorizer = require("colorizer")
@@ -19,55 +18,8 @@ local indent_line = require("indent_blankline")
 local telescope = require("telescope")
 local autopairs = require("nvim-autopairs")
 local nvim_tree = require("nvim-tree")
-
-catppuccino.setup({
-	colorscheme = "dark_catppuccino",
-	transparency = false,
-	term_colors = false,
-	styles = {
-		comments = "bold",
-		functions = "NONE",
-		keywords = "NONE",
-		strings = "NONE",
-		variables = "NONE",
-	},
-	integrations = {
-		treesitter = true,
-		native_lsp = {
-			enabled = true,
-			virtual_text = {
-				errors = "italic",
-				hints = "italic",
-				warnings = "italic",
-				information = "italic",
-			},
-			underlderlines = {
-				errors = "underline",
-				hints = "underline",
-				warnings = "underline",
-				information = "underline",
-			},
-		},
-		lsp_trouble = true,
-		lsp_saga = false,
-		gitgutter = false,
-		gitsigns = true,
-		telescope = true,
-		nvimtree = { enabled = true, show_root = true },
-		which_key = true,
-		indent_blankline = { enabled = true, colored_indent_levels = false },
-		dashboard = false,
-		neogit = true,
-		vim_sneak = false,
-		fern = false,
-		barbar = false,
-		bufferline = false,
-		markdown = false,
-		lightspeed = false,
-		ts_rainbow = true,
-		hop = false,
-	},
-})
+local orgmode = require("orgmode")
+local org_bullets = require("org-bullets")
 
 vim.g.onedark_style = "deep"
 vim.g.onedark_transparent_background = false
@@ -203,5 +155,16 @@ nvim_tree.setup({
 	update_cwd = true,
 })
 
+orgmode.setup({})
+
+org_bullets.setup({
+	symbols = { "◉", "○", "✸", "✿" },
+	-- or a function that receives the defaults and returns a list
+	symbols = function(default_list)
+		table.insert(default_list, "♥")
+		return default_list
+	end,
+})
+
 -- deploying the theme
-vim.cmd("colorscheme space_vim_theme")
+vim.cmd("colorscheme onedark")

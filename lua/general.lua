@@ -1,3 +1,4 @@
+
 -- dozvoljava da koristimo mis da setujemo kursor
 vim.cmd('set mouse=a')
 -- boje neophodne ako koristimo terminal?

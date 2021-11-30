@@ -20,8 +20,6 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 
-	use("Pocco81/Catppuccino.nvim")
-
 	use({
 		"hoob3rt/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -110,8 +108,8 @@ return require("packer").startup(function()
 
 	use("NTBBloodbath/doom-one.nvim")
 	use("liuchengxu/space-vim-theme")
-	-- https://github.com/tami5/lspsaga.nvim 
-    use { 'tami5/lspsaga.nvim', branch = 'nvim51' }
+	-- https://github.com/tami5/lspsaga.nvim
+	use({ "tami5/lspsaga.nvim", branch = "nvim51" })
 	-- https://github.com/famiu/bufdelete.nvim
 	use("famiu/bufdelete.nvim")
 	-- https://github.com/jghauser/mkdir.nvim
@@ -126,4 +124,8 @@ return require("packer").startup(function()
 	use({ "itchyny/vim-cursorword" })
 	-- https://github.com/dense-analysis/ale
 	use({ "dense-analysis/ale" })
+	-- https://github.com/kristijanhusak/orgmode.nvim
+	use({ "kristijanhusak/orgmode.nvim" })
+	-- https://github.com/akinsho/org-bullets.nvim
+	use({ "akinsho/org-bullets.nvim" })
 end)

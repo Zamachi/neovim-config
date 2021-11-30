@@ -18,7 +18,9 @@ end
 --local sumneko_root_path = vim.fn.stdpath('data')..'/lsp_servers/sumneko_lua/extension/server'
 
 --koristiti putanju ispod ako je sumneko_lua server instaliran kao VScode ekstenzija
-local sumneko_root_path = 'C:/Users/Zamachi/.vscode/extensions/sumneko.lua-2.4.5/server'
+--[[local sumneko_root_path = 'C:/Users/Zamachi/.vscode/extensions/sumneko.lua-2.4.5/server']]
+-- koristiti putanju ispod ako koristite Linux i buildujete from source sa ninja 
+local sumneko_root_path = '/home/zamachi/Public/LuaLSP'
 local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server" 
 
 local runtime_path = vim.split(package.path, ';')
