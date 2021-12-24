@@ -5,14 +5,30 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd("packadd packer.nvim")
 end
 
+-- Reloaduje Neovim svaki put kad sacuvamo ovaj fajl
 vim.cmd([[
 	augroup packer_user_config
 		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+		autocmd BufWritePost plugins.lua source <afile> | PackerSync
 	augroup end
 ]])
 
-return require("packer").startup(function()
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+	vim.notify("Doslo je do greske prilikom ocitavanja packera")
+	return
+end
+
+-- Packer prozor se od sada pojavljuje u floating prozoru
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
+return packer.startup(function()
 	use("wbthomason/packer.nvim")
 	-- https://github.com/nvim-treesitter/nvim-treesitter
 	use({
@@ -104,7 +120,7 @@ return require("packer").startup(function()
 	use("windwp/nvim-projectconfig")
 	-- https://github.com/tyru/open-browser.vim
 	use("tyru/open-browser.vim")
-	use("tamago324/telescope-openbrowser.nvim") -- might not be needed!
+	--use("tamago324/telescope-openbrowser.nvim") -- might not be needed!
 
 	use("NTBBloodbath/doom-one.nvim")
 	use("liuchengxu/space-vim-theme")
@@ -128,4 +144,9 @@ return require("packer").startup(function()
 	use({ "kristijanhusak/orgmode.nvim" })
 	-- https://github.com/akinsho/org-bullets.nvim
 	use({ "akinsho/org-bullets.nvim" })
+
+	-- Automatski setupuje konfiguraciju nakon kloniranja packer-a
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)
